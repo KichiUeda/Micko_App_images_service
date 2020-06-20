@@ -21,6 +21,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "express": "^4.17.1",
     "html-webpack-plugin": "^4.3.0",
+    "mongoose": "^5.9.19",
     "prettier": "2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
