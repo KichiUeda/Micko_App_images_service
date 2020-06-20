@@ -1,17 +1,31 @@
 {
-  "name": "",
+  "name": "image_services",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Micko Cabacungan",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "build": "webpack --watch -d",
+    "start": "node ./server/index.js",
+    "format": "prettier --write \"src/**/*.js\""
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.3.0",
+    "prettier": "2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
