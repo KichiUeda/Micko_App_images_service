@@ -12,7 +12,9 @@
     "start": "node ./server/index.js",
     "format": "prettier --write \"src/**/*.js\""
   },
-  "dependencies": {},
+  "dependencies": {
+    
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
