@@ -1,9 +1,14 @@
+require('dotenv').config();
 const cloudinary = require('cloudinary');
 const pexelsClient = require('pexels').createClient;
 const videos = require('../sampleDatas/videoList.js')
 const API_CONFIG = require('./config.js');
 
-cloudinary.config(API_CONFIG.cloudinary);
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API,
+  api_secret: process.env.CLOUD_SECRET
+});
 
 var pexel = pexelsClient(API_CONFIG.pexels.key);
 var amount = 3;
