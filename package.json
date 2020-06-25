@@ -10,7 +10,8 @@
   "scripts": {
     "build": "webpack --watch -d",
     "start": "node ./server/index.js",
-    "format": "prettier --write \"src/**/*.js\""
+    "format": "prettier --write \"src/**/*.js\"",
+    "seed": "node ./database/seeder.js"
   },
   "dependencies": {},
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
     "cloudinary": "^1.22.0",
+    "dotenv": "^8.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "express": "^4.17.1",
     "html-webpack-plugin": "^4.3.0",

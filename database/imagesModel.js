@@ -1,5 +1,6 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:3001/images',  {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URL,  {useNewUrlParser: true})
 
 const db = mongoose.connection;
 db.on('error', () => {
@@ -10,6 +11,7 @@ db.once('open', () => {
 })
 
 const images = new mongoose.Schema({
+  product_id: Number,
   carousel_images: [String],
   carousel_videos: [String],
   description_images: [String],
