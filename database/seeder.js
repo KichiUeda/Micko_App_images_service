@@ -114,15 +114,6 @@ for (var i = 0; i < 5; i++) {
   var randomDescription = Math.floor(Math.random() * 10);
   var id = 0;
 
-  /*
-  Promise.all result indexes
-  0 - carousel images
-  1 - videos
-  2 - description images
-  3 - cover image
-  */
-
-
   Promise.all([randomCarouselImages(randomCarousel),randomVideoPackage(randomVideo), randomDescriptionImages(randomDescription), randomCoverImages(1)])
   .then((packages) => {
     console.log(packages);
@@ -143,12 +134,3 @@ for (var i = 0; i < 5; i++) {
   })
   .catch(err => console.log(err))
 }
-
-/*
-  carousel_images: [String],
-  carousel_videos: [String],
-  description_images: [String],
-  description_gifs: [String],
-  thumbnail: String,
-  cover_image: String
-*/
