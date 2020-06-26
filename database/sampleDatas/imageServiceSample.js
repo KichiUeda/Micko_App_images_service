@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     product_id: 1,
     carousel_images: ['https://picsum.photos/400', 'https://picsum.photos/400'],
