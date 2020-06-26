@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "webpack --watch -d",
+    "seed": "node ./database/seeder.js"
     "upload": "node ./database/cloud/uploadMedia.js"
     "start": "nodemon ./server/index.js",
     "format": "prettier --write \"src/**/*.js\""
