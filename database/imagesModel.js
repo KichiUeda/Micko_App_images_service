@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/images',  {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://localhost:3001/images',  {useNewUrlParser: true, useUnifiedTopology: true})
 
 const db = mongoose.connection;
 db.on('error', () => {
