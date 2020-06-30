@@ -117,7 +117,7 @@ for (var i = 0; i < 5; i++) {
   Promise.all([randomCarouselImages(randomCarousel),randomVideoPackage(randomVideo), randomDescriptionImages(randomDescription), randomCoverImages(1)])
   .then((packages) => {
     console.log(packages);
-    var imageDocument = new Images ({
+    var imageDocument = new Images.Images ({
       product_id: id,
       carousel_images: packages[0],
       carousel_videos: packages[1],
