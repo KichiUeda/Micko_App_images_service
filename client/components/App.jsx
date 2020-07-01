@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Viewer from "./Viewer.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends React.Component {
 
   render() {
     return <div>
-        <h1>HELLO WORLD</h1>
+        <Viewer/>
       </div>
   }
 }
