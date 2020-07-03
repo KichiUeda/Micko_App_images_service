@@ -10,7 +10,7 @@ app.use(express.urlencoded())
 
 //console.log(__dirname + '/public/lib')
 
-app.get('/:productId', (req, res) => {
+app.get('/api/:productId', (req, res) => {
   var param_id = parseInt(req.params.productId);
   var {product_id, carousel_images, carousel_videos, description_images, description_gifs, thumbnail, cover_image} = sampleData.find(data => data.product_id === param_id);
   var type = req.query.type;
