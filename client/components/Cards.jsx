@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-class Cards extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return <div>
-      carousel Image
-    </div>
-  }
+const cardStyle = {
+  'margin': '10px'
 }
+
+const Cards = (props) => (
+  <div style={cardStyle}>
+    <img src="https://picsum.photos/218/122" alt="Carousel"></img>
+  </div>
+)
+
 
 export default Cards;
