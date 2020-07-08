@@ -16,7 +16,7 @@ app.get('/images', (req,res) => {
   res.sendFile(package);
 })
 
-app.get('/:productId', (req, res) => {
+app.get('/api/:productId', (req, res) => {
   var param_id = parseInt(req.params.productId);
   var {product_id, carousel_images, carousel_videos, description_images, description_gifs, thumbnail, cover_image} = sampleData.find(data => data.product_id === param_id);
   var type = req.query.type;
@@ -69,7 +69,7 @@ Params
 { productId: '123' }
 */
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server Live listening on port ${port}`);
 });
