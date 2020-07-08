@@ -1,5 +1,6 @@
 const express = require('express');
 const sampleData = require('../database/sampleDatas/imageServiceSample.js')
+const path = require('path');
 
 
 const app = express();
@@ -9,8 +10,13 @@ app.use(express.json());
 app.use(express.urlencoded())
 
 //console.log(__dirname + '/public/lib')
+//temporary endpoint to server webpack
+app.get('/images', (req,res) => {
+  const package = path.join(__dirname, '../public/lib/bundle.js')
+  res.sendFile(package);
+})
 
-app.get('/api/:productId', (req, res) => {
+app.get('/:productId', (req, res) => {
   var param_id = parseInt(req.params.productId);
   var {product_id, carousel_images, carousel_videos, description_images, description_gifs, thumbnail, cover_image} = sampleData.find(data => data.product_id === param_id);
   var type = req.query.type;

@@ -6,11 +6,11 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      main: this.images[0],
+      images: ['https://picsum.photos/218/122', 'https://picsum.photos/218/122', 'https://picsum.photos/218/122']
     }
 
   }
-
 
   render() {
     return <div>
