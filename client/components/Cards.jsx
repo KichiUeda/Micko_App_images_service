@@ -36,6 +36,7 @@ export default class Cards extends React.Component {
         <Card><img src="https://picsum.photos/218/122"></img></Card>
         <Card><img src="https://picsum.photos/218/122"></img></Card>
         <Card><img src="https://picsum.photos/218/122"></img></Card>
+        <Card><img src="https://picsum.photos/218/122"></img></Card>
         <Arrow><i className='fas fa-angle-right'></i></Arrow>
       </CarouselContainer>
     )
