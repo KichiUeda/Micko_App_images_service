@@ -1,10 +1,13 @@
 const express = require('express');
-const sampleData = require('../database/sampleDatas/imageServiceSample.js')
+//const sampleData = require('../database/sampleDatas/imageServiceSample.js')
+const Images = require('../database/imagesModel.js').Images;
 const path = require('path');
+var cors = require('cors');
 
 
 const app = express();
 
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded())
@@ -17,49 +20,70 @@ app.get('/images', (req,res) => {
 })
 
 app.get('/api/:productId', (req, res) => {
+  //console.log('****HIT CHECK****')
   var param_id = parseInt(req.params.productId);
-  var {product_id, carousel_images, carousel_videos, description_images, description_gifs, thumbnail, cover_image} = sampleData.find(data => data.product_id === param_id);
   var type = req.query.type;
 
-  if (!type && param_id === product_id) {
-    res.send({product_id, carousel_images, carousel_videos, description_images, description_gifs, thumbnail, cover_image});
+  if (!type && param_id) {
+    // res.send({product_id, carousel_images, carousel_videos, description_images, description_gifs, thumbnail, cover_image});
+    Images.find({product_id: param_id})
+    .then((docs) => {
+      res.send(docs[0]);
+    })
   }
 
   if (type === 'carousel_images') {
-    res.send({
-      product_id,
-      carousel_images
+    Images.find({product_id: param_id})
+    .then((docs) => {
+      res.send(docs[0].carousel_images);
     })
   }
 
   if (type === 'carousel_videos') {
-    res.send({
-      product_id,
-      carousel_videos
+    Images.find({product_id: param_id})
+    .then((docs) => {
+      res.send(docs[0].carousel_videos);
     })
   }
 
   if (type === 'thumbnail') {
-    res.send(thumbnail)
+    var arrayOfId = JSON.parse(req.params.productId);
+    //console.log(arrayOfId);
+    var packageData = async () => {
+      var dataArray = []
+      for (var i = 0; i < arrayOfId.length; i++) {
+        //console.log(typeof arrayOfId[i])
+        await Images.find({product_id: arrayOfId[i]})
+        .then((docs) => {
+          var id = docs[0].product_id;
+          var thumbnail = docs[0].thumbnail;
+          dataArray.push({product_id: id, thumbnail});
+          //console.log(dataArray);
+        })
+        .catch(err => console.log(err))
+      }
+      return dataArray;
+    }
+    Promise.resolve(packageData()).then((data) => {
+      console.log(data)
+      res.send(data)
+    })
   }
 
   if (type === 'cover') {
-    res.send(cover_image);
+    Images.find({product_id: param_id})
+    .then((docs) => {
+      res.send(docs[0].cover_image);
+    })
   }
 
   if (type === 'description_images') {
-    res.send({
-      product_id,
-      description_images
+    Images.find({product_id: param_id})
+    .then((docs) => {
+      res.send(docs[0].description_images);
     })
   }
 
-  if (type === 'description_gifs') {
-    res.send({
-      product_id,
-      description_gifs
-    })
-  }
 })
 
 /*

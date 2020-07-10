@@ -17,20 +17,44 @@ const ViewerMain = styled.div`
     width: 611px;
     height: 350px;
   }
-`
+  video {
+    width: 611px;
+    height: 350px;
+  }
+`;
 
 //741x425
 export default class Viewer extends React.Component {
+  mediaCheck(url) {
+    if (url) {
+      console.log('MEDIA CHECK TRIGGERED');
+      if (url.includes('.mp4')) {
+        var key = this.props.medias.key;
+        return (
+          <video key={key.toString()} id="videoPlayer" controls>
+            <source src={url} type="video/mp4"></source>
+          </video>
+        );
+      } else if (url.includes('.jpg')) {
+        return <img src={url}></img>;
+      }
+    } else {
+      console.log("no more images!")
+    }
+  }
+
   render() {
     return (
       <Container>
         <ViewerBox>
           <Title>TITLE</Title>
-          <ViewerMain>
-            <img src={this.props.medias.main}></img>
-          </ViewerMain>
+          <ViewerMain>{this.mediaCheck(this.props.medias.main)}</ViewerMain>
         </ViewerBox>
-        <Cards medias={this.props.medias.medias} onClick={this.props.onClick} arrowClick={this.props.arrowClick}></Cards>
+        <Cards
+          medias={this.props.medias.medias}
+          onClick={this.props.onClick}
+          arrowClick={this.props.arrowClick}
+        ></Cards>
       </Container>
     );
   }
