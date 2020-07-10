@@ -2,10 +2,12 @@ const express = require('express');
 //const sampleData = require('../database/sampleDatas/imageServiceSample.js')
 const Images = require('../database/imagesModel.js').Images;
 const path = require('path');
+var cors = require('cors');
 
 
 const app = express();
 
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded())
