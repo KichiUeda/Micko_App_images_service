@@ -149,6 +149,7 @@ var packageForDatabase = (amountOfSeeding) => {
         console.log("Saved document")
       });
     }
+
   })
   .catch(err => console.log(err));
 }

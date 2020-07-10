@@ -1,21 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./components/App.jsx"
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
-
-  }
-
-
-  render() {
-    return <div>
-        <h1>HELLO WORLD</h1>
-      </div>
-  }
-}
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('images'));

@@ -8,6 +8,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  plugins: [HTMLWebpackPluginConfig],
   entry: './client/index.jsx',
   output: {
     path: path.resolve(__dirname, 'public', 'lib'),
