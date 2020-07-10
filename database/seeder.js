@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require('dotenv').config();
 const Images = require('./imagesModel.js');
 const cloudinary = require('cloudinary').v2;
@@ -40,7 +41,7 @@ var randomVideoPackage = () => {
 
 var randomCoverImages = () => {
   //var coverImages = [];
-  var max_results = 60
+  var max_results = 90
 
   return new Promise ((resolve,reject) => {
     cloudinary.search
@@ -65,7 +66,7 @@ var randomCoverImages = () => {
 
 var randomDescriptionImages = () => {
   //var descriptionImages = [];
-  var max_results = 60
+  var max_results = 90
 
   return new Promise((resolve,reject) => {
     cloudinary.search
@@ -90,7 +91,7 @@ var randomDescriptionImages = () => {
 
 var randomCarouselImages = () => {
   //var carouselImages = [];
-  var max_results = 60
+  var max_results = 90
 
   return new Promise((resolve,reject) => {
     cloudinary.search
@@ -124,13 +125,13 @@ var randomPicker = (mediaArray, amount) => {
 
 //amount of seeding = the amount of documents to save to mongodb
 var packageForDatabase = (amountOfSeeding) => {
-  var randomCarouselAmount = Math.floor(Math.random() * 6);
-  var randomVideoAmount = Math.floor(Math.random() * 4);
-  var randomDescriptionAmount = Math.floor(Math.random() * 4);
   var id = 1;
   Promise.all([randomCarouselImages(),randomVideoPackage(), randomDescriptionImages(), randomCoverImages()])
   .then(() => {
     for (var i = 0; i < amountOfSeeding; i++) {
+      var randomCarouselAmount = Math.floor(Math.random() * 6) + 3;
+      var randomVideoAmount = Math.floor(Math.random() * 4) + 1;
+      var randomDescriptionAmount = Math.floor(Math.random() * 4) + 2;
       var cover_image = randomPicker(coverImages, 1)[0];
       var imageDocument = new Images ({
         product_id: id,
@@ -149,10 +150,10 @@ var packageForDatabase = (amountOfSeeding) => {
         console.log("Saved document")
       });
     }
-
   })
   .catch(err => console.log(err));
 }
 
 //Invoke packageForDatabase to start saving to mongoDB
+
 packageForDatabase(100);
