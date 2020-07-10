@@ -3,9 +3,9 @@ const Images = require('./imagesModel.js');
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API,
-  api_secret: process.env.CLOUD_SECRET
+  cloud_name: 'fec-image-services',
+  api_key: '518165317765796',
+  api_secret: '5MZP_jJcHOj-r-S9dv81qKIN7vU'
 });
 
 //MEDIA ARRAY CONTAINERS
@@ -128,7 +128,7 @@ var packageForDatabase = (amountOfSeeding) => {
   var randomVideoAmount = Math.floor(Math.random() * 4);
   var randomDescriptionAmount = Math.floor(Math.random() * 4);
   var id = 1;
-  Promise.all([randomCarouselImages(randomCarousel),randomVideoPackage(randomVideo), randomDescriptionImages(randomDescription), randomCoverImages(1)])
+  Promise.all([randomCarouselImages(),randomVideoPackage(), randomDescriptionImages(), randomCoverImages()])
   .then(() => {
     for (var i = 0; i < amountOfSeeding; i++) {
       var imageDocument = new Images ({
@@ -137,8 +137,8 @@ var packageForDatabase = (amountOfSeeding) => {
         carousel_videos: randomPicker(videos, randomVideoAmount),
         description_images: randomPicker(descriptionImages, randomDescriptionAmount),
         description_gifs: descriptionImages[0], //still need to figure out using a gif provider to upload gifs to cloud
-        thumbnail: randomPicker(coverImages, 1),
-        cover_image: randomPicker(coverImages, 1),
+        thumbnail: randomPicker(coverImages, 1)[0],
+        cover_image: randomPicker(coverImages, 1)[0],
       })
 
       id++;
