@@ -131,14 +131,15 @@ var packageForDatabase = (amountOfSeeding) => {
   Promise.all([randomCarouselImages(),randomVideoPackage(), randomDescriptionImages(), randomCoverImages()])
   .then(() => {
     for (var i = 0; i < amountOfSeeding; i++) {
+      var cover_image = randomPicker(coverImages, 1)[0];
       var imageDocument = new Images ({
         product_id: id,
         carousel_images: randomPicker(carouselImages, randomCarouselAmount),
         carousel_videos: randomPicker(videos, randomVideoAmount),
         description_images: randomPicker(descriptionImages, randomDescriptionAmount),
         description_gifs: descriptionImages[0], //still need to figure out using a gif provider to upload gifs to cloud
-        thumbnail: randomPicker(coverImages, 1)[0],
-        cover_image: randomPicker(coverImages, 1)[0],
+        thumbnail: cover_image,
+        cover_image
       })
 
       id++;
