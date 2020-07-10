@@ -12,16 +12,25 @@ const Container = styled.div`
 const Title = styled.h1`
   color: #a1a7b3;
 `;
+const ViewerMain = styled.div`
+  img {
+    width: 611px;
+    height: 350px;
+  }
+`
 
+//741x425
 export default class Viewer extends React.Component {
   render() {
     return (
       <Container>
         <ViewerBox>
           <Title>TITLE</Title>
-          <img src="https://picsum.photos/741/429"></img>
+          <ViewerMain>
+            <img src={this.props.medias.main}></img>
+          </ViewerMain>
         </ViewerBox>
-        <Cards></Cards>
+        <Cards medias={this.props.medias.medias} onClick={this.props.onClick} arrowClick={this.props.arrowClick}></Cards>
       </Container>
     );
   }
