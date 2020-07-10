@@ -3,9 +3,9 @@ const Images = require('./imagesModel.js');
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
-  cloud_name: 'fec-image-services',
-  api_key: '518165317765796',
-  api_secret: '5MZP_jJcHOj-r-S9dv81qKIN7vU'
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API,
+  api_secret: process.env.CLOUD_SECRET
 });
 
 //MEDIA ARRAY CONTAINERS
