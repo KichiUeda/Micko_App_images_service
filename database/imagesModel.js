@@ -22,4 +22,7 @@ const images = new mongoose.Schema({
 
 const Images = mongoose.model('Images', images);
 
-module.exports = Images;
+module.exports = {
+  Images,
+  images
+};

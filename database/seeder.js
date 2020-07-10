@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require('dotenv').config();
 const Images = require('./imagesModel.js');
 const cloudinary = require('cloudinary').v2;
@@ -154,4 +155,5 @@ var packageForDatabase = (amountOfSeeding) => {
 }
 
 //Invoke packageForDatabase to start saving to mongoDB
+
 packageForDatabase(100);
