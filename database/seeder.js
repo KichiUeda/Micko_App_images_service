@@ -1,5 +1,5 @@
 require('dotenv').config();
-const Images = require('./imagesModel.js');
+const Images = require('./imagesModel.js').Images;
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
