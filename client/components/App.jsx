@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Viewer from "./Viewer.jsx";
 import $ from "jquery";
-//git wants to be funny eh
+//something unimportant
 class App extends React.Component {
   constructor(props) {
     super(props)
