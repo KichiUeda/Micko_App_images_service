@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require('dotenv').config();
 const Images = require('./imagesModel.js').Images;
 const cloudinary = require('cloudinary').v2;
