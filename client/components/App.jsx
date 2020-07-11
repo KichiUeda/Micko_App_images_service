@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Viewer from "./Viewer.jsx";
 import $ from "jquery";
-
+//something unimportant
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       main:'https://picsum.photos/218/122',
-      medias: ['https://picsum.photos/218/122', 'https://picsum.photos/218/122', 'https://picsum.photos/218/122']
+      medias: ['https://picsum.photos/218/122', 'http://res.cloudinary.com/fec-image-services/image/upload/v1592873080/images_carousel/75.jpg', 'http://res.cloudinary.com/fec-image-services/image/upload/v1592873077/cover_images/89.jpg'],
+      key: 0
     }
     this.getProductId = this.getProductId.bind(this);
   }
@@ -61,11 +62,61 @@ class App extends React.Component {
       console.log('Cannot find product id from path!');
     }
 
+    this.onClick = this.onClick.bind(this);
+    this.arrowClick = this.arrowClick.bind(this);
+  }
+
+  onClick(e) {
+    var key = this.state.key;
+    key++;
+    if (e.target.attributes.length === 0) {
+      //console.log('this isnt an image bro.')
+      var videoSource = e.target.childNodes[0].src;
+      this.setState({
+        main: videoSource,
+        key: key
+      })
+    } else {
+      var targetSource = e.target.attributes.src.nodeValue;
+      this.setState({
+        main: targetSource,
+        key: key
+      })
+    }
+  }
+
+  arrowClick(e) {
+    //fas fa-angle-right fa-angle-left
+    var className = e.target.className;
+    var currentView = this.state.main;
+    var index = this.state.medias.indexOf(currentView);
+    var mediaLength = this.state.medias.length;
+    var key = this.state.key;
+    key++;
+    if (className === 'fas fa-angle-right') {
+      if (index < mediaLength) {
+        this.setState({
+          main: this.state.medias[index + 1],
+          key: key
+        })
+      } else {
+        console.log('Ran out of media to view RIGHT')
+      }
+    } else if (className === 'fas fa-angle-left') {
+      if (index > 0) {
+        this.setState({
+          main: this.state.medias[index - 1],
+          key: key
+        })
+      } else {
+        console.log('There are no previous media to view LEFT');
+      }
+    }
   }
 
   render() {
     return <div>
-        <Viewer/>
+        <Viewer medias={this.state} onClick={this.onClick} arrowClick={this.arrowClick}/>
       </div>
   }
 }
