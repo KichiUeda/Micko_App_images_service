@@ -71,18 +71,18 @@ class App extends React.Component {
     key++;
     if (e.target.attributes.length === 0 || e.target.childNodes.length) {
       var videoSource = e.target.childNodes[0].src;
-      let newMediaCol = this.mediaCollectionRotator(this.state.medias, videoSource);
+      let newMediaCollection = this.mediaCollectionRotator(this.state.medias, videoSource);
       this.setState({
         main: videoSource,
-        medias: newMediaCol,
+        medias: newMediaCollection,
         key: key
       })
     } else {
       var targetSource = e.target.attributes.src.nodeValue;
-      let newMediaCol = this.mediaCollectionRotator(this.state.medias, targetSource);
+      let newMediaCollection = this.mediaCollectionRotator(this.state.medias, targetSource);
       this.setState({
         main: targetSource,
-        medias: newMediaCol,
+        medias: newMediaCollection,
         key: key
       })
     }
@@ -98,26 +98,26 @@ class App extends React.Component {
     key++;
     if (className === 'fas fa-angle-right') {
       if (index < mediaLength) {
-        var newCol = this.mediaCollectionRotator(this.state.medias, currentView, 'right');
+        var newCollection = this.mediaCollectionRotator(this.state.medias, currentView, 'right');
         this.setState({
-          main: newCol[0],
-          medias: newCol,
+          main: newCollection[0],
+          medias: newCollection,
           key: key
         })
       }
     } else if (className === 'fas fa-angle-left') {
-        var newCol = this.mediaCollectionRotator(this.state.medias, currentView, 'left');
+        var newCollection = this.mediaCollectionRotator(this.state.medias, currentView, 'left');
         this.setState({
-          main: newCol[0],
-          medias: newCol,
+          main: newCollection[0],
+          medias: newCollection,
           key: key
         })
     }
   }
 
-  mediaCollectionRotator(col, selected, arrow = false) {
+  mediaCollectionRotator(collection, selected, arrow = false) {
     let rotate = () => {
-      let newArray = col;
+      let newArray = collection;
       let currentLocation = newArray.indexOf(selected);
       let temp = newArray.slice(0, currentLocation);
       newArray.splice(0,currentLocation);
@@ -127,12 +127,12 @@ class App extends React.Component {
       return newArray;
     }
     let rotateRight = () => {
-      let newArray = col;
+      let newArray = collection;
       newArray.push(newArray.shift());
       return newArray;
     }
     let rotateLeft = () => {
-      let newArray = col;
+      let newArray = collection;
       let temp = newArray[newArray.length - 1];
       newArray.pop();
       newArray.unshift(temp);
