@@ -45,7 +45,7 @@ export default class Cards extends React.Component {
       if (url.includes('.mp4')) {
         return (
           <Card>
-            <video onClick={this.props.onClick}>
+            <video onClick={this.props.onClick} poster='https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png'>
               <source src={url} type="video/mp4"></source>
               Your browser does not support the video tag.
             </video>
