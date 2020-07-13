@@ -1,16 +1,21 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import styled from 'styled-components';
 
 const CarouselContainer = styled.div`
   display: flex;
   flex-direction: row;
+  background-color: #282c34;
+  padding-bottom: 10px;
 `;
 const Arrow = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
   .fas {
     color: #949699;
-    font-size: 50px;
+    font-size: 35px;
   }
   &:hover .fas {
     color: #d2d5d9;
@@ -23,8 +28,8 @@ const CardContainer = styled.div`
 const Card = styled.div`
   width: 218px;
   height: 122px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   margin-top: 15px;
   img {
     width: 218px;
@@ -62,18 +67,19 @@ export default class Cards extends React.Component {
   }
 
   render() {
-    return (
+    return ReactDOM.createPortal(
       <CarouselContainer>
         <Arrow onClick={this.props.arrowClick}>
-          <i className="fas fa-angle-left"></i>
+          <i className="fas fa-chevron-left"></i>
         </Arrow>
         <CardContainer>
           {this.createCards()}
         </CardContainer>
         <Arrow onClick={this.props.arrowClick}>
-          <i className="fas fa-angle-right"></i>
+          <i className="fas fa-chevron-right"></i>
         </Arrow>
-      </CarouselContainer>
+      </CarouselContainer>,
+      document.getElementById('carousel')
     );
   }
 }
