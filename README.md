@@ -1,29 +1,32 @@
 # Project Name
 
-> Project description
+> A microservice that includes a carousel of all medias (videos and images). This service has a main media viewer that will render the current selected media.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/KichiUeda/Micko_App_images_service
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-  **IMPORTANT**
-    - Make sure to add - <script src='https://kit.fontawesome.com/a076d05399.js'></script> - inside of your index.html to load in some required fonts
-    - Add <script src='http://localhost:3001/images'></script> inside of your index.html body
-    - The component requires a div with an id of 'images'
-      ex: <div id='images'></div>
-      - Perferably placed inside of your main React Component so that it can be placed at the correct spot.
 1. [Requirements](#requirements)
 1. [Development](#development)
 
 ## Usage
 
-> Some usage instructions
+***IMPORTANT***
+Make sure to have env variables ready!
+> run `npm install`
+
+> run `npm run seed`
+
+> run `npm run build`
+
+> run `npm start`
+
+ ***Include the following in your proxy html***
+  - `<div id='images'></div>` (this will probably in a container with Pricing and Promotion service)
+  - `<div id='carousel'></div>`
 
 ## Requirements
 
