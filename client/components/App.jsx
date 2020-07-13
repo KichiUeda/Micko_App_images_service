@@ -69,17 +69,20 @@ class App extends React.Component {
   onClick(e) {
     var key = this.state.key;
     key++;
-    if (e.target.attributes.length === 0) {
-      //console.log('this isnt an image bro.')
+    if (e.target.attributes.length === 0 || e.target.childNodes.length) {
       var videoSource = e.target.childNodes[0].src;
+      let newMediaCol = this.mediaCollectionRotator(this.state.medias, videoSource);
       this.setState({
         main: videoSource,
+        medias: newMediaCol,
         key: key
       })
     } else {
       var targetSource = e.target.attributes.src.nodeValue;
+      let newMediaCol = this.mediaCollectionRotator(this.state.medias, targetSource);
       this.setState({
         main: targetSource,
+        medias: newMediaCol,
         key: key
       })
     }
@@ -95,23 +98,52 @@ class App extends React.Component {
     key++;
     if (className === 'fas fa-angle-right') {
       if (index < mediaLength) {
+        var newCol = this.mediaCollectionRotator(this.state.medias, currentView, 'right');
         this.setState({
-          main: this.state.medias[index + 1],
+          main: newCol[0],
+          medias: newCol,
           key: key
         })
-      } else {
-        console.log('Ran out of media to view RIGHT')
       }
     } else if (className === 'fas fa-angle-left') {
-      if (index > 0) {
+        var newCol = this.mediaCollectionRotator(this.state.medias, currentView, 'left');
         this.setState({
-          main: this.state.medias[index - 1],
+          main: newCol[0],
+          medias: newCol,
           key: key
         })
-      } else {
-        console.log('There are no previous media to view LEFT');
-      }
     }
+  }
+
+  mediaCollectionRotator(col, selected, arrow = false) {
+    let rotate = () => {
+      let newArray = col;
+      let currentLocation = newArray.indexOf(selected);
+      let temp = newArray.slice(0, currentLocation);
+      newArray.splice(0,currentLocation);
+      temp.forEach((e) => {
+        newArray.push(e);
+      });
+      return newArray;
+    }
+    let rotateRight = () => {
+      let newArray = col;
+      newArray.push(newArray.shift());
+      return newArray;
+    }
+    let rotateLeft = () => {
+      let newArray = col;
+      let temp = newArray[newArray.length - 1];
+      newArray.pop();
+      newArray.unshift(temp);
+      return newArray;
+    }
+    if (arrow === 'left') {
+      return rotateLeft();
+    } else if (arrow === 'right') {
+      return rotateRight();
+    }
+    return rotate();
   }
 
   render() {
