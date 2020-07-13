@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Viewer from "./Viewer.jsx";
+import Cards from "./Cards.jsx";
 import $ from "jquery";
 //something unimportant
 class App extends React.Component {
@@ -96,7 +97,7 @@ class App extends React.Component {
     var mediaLength = this.state.medias.length;
     var key = this.state.key;
     key++;
-    if (className === 'fas fa-angle-right') {
+    if (className === 'fas fa-chevron-right') {
       if (index < mediaLength) {
         var newCollection = this.mediaCollectionRotator(this.state.medias, currentView, 'right');
         this.setState({
@@ -105,7 +106,7 @@ class App extends React.Component {
           key: key
         })
       }
-    } else if (className === 'fas fa-angle-left') {
+    } else if (className === 'fas fa-chevron-left') {
         var newCollection = this.mediaCollectionRotator(this.state.medias, currentView, 'left');
         this.setState({
           main: newCollection[0],
@@ -148,6 +149,7 @@ class App extends React.Component {
 
   render() {
     return <div>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <Viewer medias={this.state} onClick={this.onClick} arrowClick={this.arrowClick}/>
       </div>
   }

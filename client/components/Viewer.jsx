@@ -6,7 +6,7 @@ const ViewerBox = styled.div`
   padding: 20px;
 `;
 const Container = styled.div`
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   background-color: #282c34;
 `;
 const Title = styled.h1`
@@ -47,7 +47,6 @@ export default class Viewer extends React.Component {
     return (
       <Container>
         <ViewerBox>
-          <Title>TITLE</Title>
           <ViewerMain>{this.mediaCheck(this.props.medias.main)}</ViewerMain>
         </ViewerBox>
         <Cards
