@@ -13,6 +13,8 @@ class App extends React.Component {
       key: 0
     }
     this.getProductId = this.getProductId.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.arrowClick = this.arrowClick.bind(this);
   }
 
   getProductId() {
