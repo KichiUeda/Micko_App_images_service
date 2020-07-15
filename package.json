@@ -13,7 +13,8 @@
     "upload": "node ./database/cloud/uploadMedia.js",
     "start": "nodemon ./server/index.js",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "mocha"
+    "test": "mocha",
+    "deploy": "pm2 start ecosystem.config.js"
   },
   "dependencies": {
     "jquery": "^3.5.1",
