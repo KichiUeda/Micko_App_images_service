@@ -90,14 +90,14 @@ class App extends React.Component {
   }
 
   arrowClick(e) {
-    //fas fa-angle-right fa-angle-left
-    var className = e.target.className;
+    //console.log(e.target.className.baseVal)
+    var className = e.target.className.baseVal;
     var currentView = this.state.main;
     var index = this.state.medias.indexOf(currentView);
     var mediaLength = this.state.medias.length;
     var key = this.state.key;
     key++;
-    if (className === 'fas fa-chevron-right') {
+    if (className === 'arrows arrows-right') {
       if (index < mediaLength) {
         var newCollection = this.mediaCollectionRotator(this.state.medias, currentView, 'right');
         this.setState({
@@ -106,7 +106,7 @@ class App extends React.Component {
           key: key
         })
       }
-    } else if (className === 'fas fa-chevron-left') {
+    } else if (className === 'arrows arrows-left') {
         var newCollection = this.mediaCollectionRotator(this.state.medias, currentView, 'left');
         this.setState({
           main: newCollection[0],
@@ -149,7 +149,6 @@ class App extends React.Component {
 
   render() {
     return <div>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <Viewer medias={this.state} onClick={this.onClick} arrowClick={this.arrowClick}/>
       </div>
   }

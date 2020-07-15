@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import styled from 'styled-components';
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { IconContext } from "react-icons";
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -13,11 +15,11 @@ const Arrow = styled.div`
   align-items: center;
   padding-left: 15px;
   padding-right: 15px;
-  .fas {
+  .arrows {
     color: #949699;
     font-size: 35px;
   }
-  &:hover .fas {
+  &:hover .arrows {
     color: #d2d5d9;
   }
 `;
@@ -70,13 +72,17 @@ export default class Cards extends React.Component {
     return ReactDOM.createPortal(
       <CarouselContainer>
         <Arrow onClick={this.props.arrowClick}>
-          <i className="fas fa-chevron-left"></i>
+          <IconContext.Provider value={{className: "arrows arrows-left" }}>
+            <FiChevronLeft/>
+          </IconContext.Provider>
         </Arrow>
         <CardContainer>
           {this.createCards()}
         </CardContainer>
         <Arrow onClick={this.props.arrowClick}>
-          <i className="fas fa-chevron-right"></i>
+          <IconContext.Provider value={{className: "arrows arrows-right" }}>
+            <FiChevronRight/>
+          </IconContext.Provider>
         </Arrow>
       </CarouselContainer>,
       document.getElementById('carousel')
