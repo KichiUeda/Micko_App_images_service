@@ -63,8 +63,6 @@ class App extends React.Component {
       console.log('Cannot find product id from path!');
     }
 
-    this.onClick = this.onClick.bind(this);
-    this.arrowClick = this.arrowClick.bind(this);
   }
 
   onClick(e) {
