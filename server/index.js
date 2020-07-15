@@ -8,7 +8,6 @@ var cors = require('cors');
 const app = express();
 
 app.use(cors());
-console.log('sending bundle');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded())
