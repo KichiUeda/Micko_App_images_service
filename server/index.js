@@ -8,9 +8,10 @@ var cors = require('cors');
 const app = express();
 
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded())
+
 
 //console.log(__dirname + '/public/lib')
 //temporary endpoint to server webpack
