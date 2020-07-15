@@ -8,8 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      main:'https://picsum.photos/218/122',
-      medias: ['https://picsum.photos/218/122', 'http://res.cloudinary.com/fec-image-services/image/upload/v1592873080/images_carousel/75.jpg', 'http://res.cloudinary.com/fec-image-services/image/upload/v1592873077/cover_images/89.jpg'],
+      main: "http://res.cloudinary.com/fec-image-services/image/upload/v1592873078/images_carousel/55.jpg",
+      medias: ["http://res.cloudinary.com/fec-image-services/image/upload/v1592873078/images_carousel/55.jpg","http://res.cloudinary.com/fec-image-services/image/upload/v1592873074/images_carousel/26.jpg","http://res.cloudinary.com/fec-image-services/image/upload/v1592873074/images_carousel/26.jpg","http://res.cloudinary.com/fec-image-services/video/upload/v1592873589/videos/ibz415yguyahchttatbe.mp4","http://res.cloudinary.com/fec-image-services/video/upload/v1592873588/videos/wif2g69fs616vhmlcis8.mp4"],
       key: 0
     }
     this.getProductId = this.getProductId.bind(this);
