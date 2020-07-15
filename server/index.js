@@ -68,7 +68,9 @@ app.get('/api/:productId', (req, res) => {
     }
     Promise.resolve(packageData()).then((data) => {
       console.log(data)
-      res.send(data)
+      console.log('**SENDING DATA TO CHRIS**')
+      res.json(data)
+      //res.send(data)
     })
   }
 
