@@ -7,25 +7,29 @@ import { IconContext } from "react-icons";
 const CarouselContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   background-color: #282c34;
   padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
 `;
 const Arrow = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
   .arrows {
     color: #949699;
     font-size: 35px;
   }
   &:hover .arrows {
+    cursor: pointer;
     color: #d2d5d9;
   }
 `;
 const CardContainer = styled.div`
   display: flex;
   overflow: hidden;
+  width: 1140px;
 `
 const Card = styled.div`
   width: 218px;
@@ -33,6 +37,7 @@ const Card = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 15px;
+  cursor: pointer;
   img {
     width: 218px;
     height: 122px;
