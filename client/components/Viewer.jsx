@@ -3,7 +3,8 @@ import Cards from './Cards.jsx';
 import styled from 'styled-components';
 
 const ViewerBox = styled.div`
-  padding: 20px;
+  padding-top:20px;
+  padding-right: 20px;
 `;
 const Container = styled.div`
   padding-bottom: 20px;
@@ -13,17 +14,13 @@ const Title = styled.h1`
   color: #a1a7b3;
 `;
 const ViewerMain = styled.div`
-  img {
-    width: 611px;
-    height: 350px;
-  }
-  video {
-    width: 611px;
-    height: 350px;
+  .media-viewer {
+    width: 741px;
+    height: 429px;
   }
 `;
 
-//741x425
+//741x429
 export default class Viewer extends React.Component {
   mediaCheck(url) {
     if (url) {
@@ -31,12 +28,12 @@ export default class Viewer extends React.Component {
       if (url.includes('.mp4')) {
         var key = this.props.medias.key;
         return (
-          <video key={key.toString()} id="videoPlayer" controls>
+          <video className='media-viewer' key={key.toString()} id="videoPlayer" controls>
             <source src={url} type="video/mp4"></source>
           </video>
         );
       } else if (url.includes('.jpg')) {
-        return <img src={url}></img>;
+        return <img className='media-viewer' src={url}></img>;
       }
     } else {
       console.log("no more images!")
