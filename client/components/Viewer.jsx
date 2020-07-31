@@ -3,7 +3,6 @@ import Cards from './Cards.jsx';
 import styled from 'styled-components';
 
 const ViewerBox = styled.div`
-  padding-top:20px;
   padding-right: 20px;
 `;
 const Container = styled.div`
