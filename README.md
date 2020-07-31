@@ -14,6 +14,7 @@
   - https://github.com/KichiUeda/other_popular_games
   - https://github.com/KichiUeda/Chris-app-service-traits
   - https://github.com/KichiUeda/Rane-app-description-service
+  - https://github.com/KichiUeda/Micko-proxy (my proxy)
 
 ## Table of Contents
 
