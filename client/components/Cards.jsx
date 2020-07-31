@@ -38,9 +38,6 @@ const Card = styled.div`
   margin-right: 5px;
   margin-top: 15px;
   cursor: pointer;
-  .current {
-    border: 6px solid #4CA0E5;
-  }
   img {
     width: 218px;
     height: 122px;
@@ -60,7 +57,7 @@ export default class Cards extends React.Component {
       if (url.includes('.mp4')) {
         return (
           <Card>
-            <video className='current' onClick={this.props.onClick} poster='https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png'>
+            <video onClick={this.props.onClick} poster='https://d33v4339jhl8k0.cloudfront.net/docs/assets/591c8a010428634b4a33375c/images/5ab4866b2c7d3a56d8873f4c/file-MrylO8jADD.png'>
               <source src={url} type="video/mp4"></source>
               Your browser does not support the video tag.
             </video>
@@ -69,7 +66,7 @@ export default class Cards extends React.Component {
       } else if (url.includes('.jpg')) {
         return (
           <Card>
-            <img className='current' src={url} onClick={this.props.onClick}></img>
+            <img src={url} onClick={this.props.onClick}></img>
           </Card>
         );
       }
