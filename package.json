@@ -43,7 +43,7 @@
     "fetch": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.1.0",
-    "mocha": "^8.0.1",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.4",
     "pexels": "^1.0.1",
     "prettier": "2.0.5",
